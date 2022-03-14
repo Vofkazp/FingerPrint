@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242424;
+  display: flex;
+  min-height: 100vh;
+}
+
+.container {
+  margin: auto;
+}
+.container .print {
+  position: relative;
+  width: 263px;
+  height: 332px;
+}
+.container .print .frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.container .print .frame::before, .container .print .frame::after {
+  content: "";
+  position: absolute;
+  border: solid #33f5f7;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+}
+.container .print .frame::before {
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+.container .print .frame:after {
+  right: 0;
+  border-width: 0 2px 2px 0;
+}
+.container .print .back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/fingprnt-0.png") top center no-repeat;
+  z-index: 0;
+}
+.container .print .back::before, .container .print .back::after {
+  content: "";
+  position: absolute;
+  border: solid #33f5f7;
+  width: 50px;
+  height: 50px;
+  top: 0;
+}
+.container .print .back::before {
+  left: 0;
+  border-width: 2px 0 0 2px;
+}
+.container .print .back:after {
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+.container .print .front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: url("../images/fingprnt-1.png") top center no-repeat;
+  z-index: 1;
+  animation: animate_1 4s infinite;
+}
+.container .print .front::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  height: 4px;
+  background: #33f5f7;
+  border-radius: 2px;
+  filter: drop-shadow(0 0 10px #33f5f7);
+}
+.container p {
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  margin-top: 20px;
+  text-align: center;
+  color: #33f5f7;
+  animation: animate_2 1s infinite steps(1);
+}
+
+@keyframes animate_1 {
+  0%, 100% {
+    height: 0;
+  }
+  50% {
+    height: 100%;
+  }
+}
+@keyframes animate_2 {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
